@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="btn-group">
+      <button type="button" class="btn btn-success" (click)="startCounter()">
+        Start Game
+      </button>
+      <button type="button" class="btn btn-danger" (click)="stopCounter()">
+        Stop Game
+      </button>
+    </div>
+
+    <div class="panel">
+      <h4>
+        <div *ngIf="counter % 2 == 0; else oddBlock"><app-even [counter]="counter" (counterFired)="display($event)"></app-even></div>
+        <ng-template #oddBlock><app-odd [counter]="counter" (counterFired)="display($event)"></app-odd></ng-template>
+      </h4>
+    </div>
+  </div>
+</div>
